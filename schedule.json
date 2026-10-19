@@ -1,0 +1,17 @@
+{
+ "launch": "2099-01-01T00:00:00Z",
+ "offsets": {
+  "2": 0,
+  "3": 24,
+  "4": 48,
+  "5": 72,
+  "6": 96,
+  "7": 96,
+  "8": 120,
+  "9": 120,
+  "10": 144,
+  "11": 144,
+  "12": 144
+ },
+ "_note": "launch=null means everything is open (testing). set launch to a time like 2026-10-25T00:00:00-04:00 to start the 7 day release. offsets are hours after launch."
+}

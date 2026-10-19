@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>server404</title>
+<style>
+  :root { --a: #e8a33d; --ln: #2b3036; --tx: #b8bec4; --dim: #69727a; --ok: #7fd18b; --bad: #e0605a; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; background: #0a0c0e; color: var(--tx); font: 13px/1.55 Consolas, Menlo, "DejaVu Sans Mono", monospace; letter-spacing: .03em; }
+  body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size: 40px 40px; -webkit-mask-image: radial-gradient(ellipse at 50% 30%, #000 25%, transparent 85%); mask-image: radial-gradient(ellipse at 50% 30%, #000 25%, transparent 85%); }
+  body::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 5; opacity: .28; background: repeating-linear-gradient(0deg, rgba(0,0,0,.35) 0 1px, transparent 1px 3px); }
+  main { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; padding: 18px 16px 56px; }
+  #top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; border-bottom: 1px solid var(--ln); padding-bottom: 8px; position: relative; }
+  #top::after { content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 3px; background: repeating-linear-gradient(90deg, var(--ln) 0 1px, transparent 1px 10px); }
+  #ttl { color: #e9edf0; letter-spacing: .18em; font-size: 14px; }
+  #ttl i { display: inline-block; width: 9px; height: 9px; background: var(--a); margin-right: 10px; }
+  #clk, #sec { color: var(--dim); font-size: 11px; letter-spacing: .14em; }
+  #ph { display: flex; align-items: center; gap: 14px; margin: 18px 0 14px; color: var(--dim); font-size: 11px; letter-spacing: .16em; flex-wrap: wrap; }
+  #ph b { color: var(--a); font-weight: normal; }
+  #seg { display: flex; gap: 3px; }
+  #seg span { width: 22px; height: 5px; background: #1b1f23; }
+  #seg span.d { background: #59616a; } #seg span.c { background: var(--a); }
+  .panel { position: relative; background: rgba(10,12,14,.82); border: 1px solid var(--ln); padding: 26px 14px 14px; margin-bottom: 18px; }
+  .panel::before, .panel::after { content: ""; position: absolute; width: 14px; height: 14px; border: 2px solid var(--a); }
+  .panel::before { top: -1px; left: -1px; border-right: 0; border-bottom: 0; }
+  .panel::after { bottom: -1px; right: -1px; border-left: 0; border-top: 0; }
+  #lab { position: absolute; left: 14px; top: 7px; font-size: 10px; letter-spacing: .2em; color: var(--dim); }
+  #lab em { color: var(--a); font-style: normal; }
+  #wait { color: var(--dim); padding: 22px 4px; letter-spacing: .12em; }
+  #wait::after { content: "_"; animation: bl 1s steps(1) infinite; color: var(--a); }
+  @keyframes bl { 50% { opacity: 0; } }
+  iframe { width: 100%; border: 0; display: block; background: transparent; }
+  #f { display: flex; gap: 8px; align-items: stretch; flex-wrap: wrap; }
+  #pr { color: var(--a); padding: 6px 0; }
+  input { background: rgba(10,12,14,.9); color: #e9edf0; border: 1px solid #3a4148; padding: 6px 10px; font: inherit; letter-spacing: .12em; width: 240px; text-transform: uppercase; }
+  input:focus { outline: none; border-color: var(--a); }
+  button { background: transparent; color: var(--a); border: 1px solid var(--a); padding: 6px 14px; font: inherit; letter-spacing: .16em; cursor: pointer; }
+  button:hover { background: var(--a); color: #0a0c0e; }
+  #m, #cd { margin: 14px 0 0; color: var(--tx); } #m { min-height: 1.6em; } #cd { margin-top: 6px; }
+  #m b, #cd b { font-weight: normal; letter-spacing: .14em; font-size: 11px; margin-right: 10px; padding: 1px 6px; border: 1px solid currentColor; }
+  #m.ok b, #cd.ok b { color: var(--ok); } #m.bad b { color: var(--bad); } #m.neu b { color: var(--dim); }
+  .gl { animation: gl .38s steps(2) 1; }
+  @keyframes gl { 0% { text-shadow: 2px 0 rgba(255,60,40,.75), -2px 0 rgba(60,220,255,.75); transform: translateX(-2px); } 25% { text-shadow: -3px 0 rgba(255,60,40,.75), 3px 0 rgba(60,220,255,.75); transform: translateX(3px); clip-path: inset(0 0 55% 0); }
+    50% { text-shadow: 2px 0 rgba(255,60,40,.75), -2px 0 rgba(60,220,255,.75); transform: translateX(-1px); clip-path: inset(40% 0 0 0); } 75% { transform: translateX(2px); clip-path: none; } 100% { text-shadow: none; transform: none; clip-path: none; } }
+  @media (prefers-reduced-motion: reduce) { .gl, #wait::after { animation: none; } }
+</style>
+</head>
+<body>
+<main>
+  <div id="top"><div id="ttl" class="gi"><i></i>OP // SERVER404</div><div id="sec">SECTOR 404 &nbsp;|&nbsp; LINK STABLE</div><div id="clk">UTC --:--:--</div></div>
+  <div id="ph"><span>PHASE <b id="pn">01</b> / 10</span><div id="seg"></div><span id="obj">OBJECTIVE: DECRYPT</span></div>
+  <div class="panel"><div id="lab">FILE <em id="fn">01</em> // CLASSIFIED</div><div id="view"><div id="wait">AWAITING CODE</div></div></div>
+  <form id="f" autocomplete="off">
+    <span id="pr">&gt;</span>
+    <input id="a" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="answer" placeholder="ENTER CODE">
+    <button type="submit">TRANSMIT</button>
+  </form>
+  <p id="m"></p>
+  <p id="cd"></p>
+</main>
+<script>
+(function () {
+  var SALT = new TextEncoder().encode("server404"), ITER = 200000;
+  var view = document.getElementById("view"), msg = document.getElementById("m"), form = document.getElementById("f"), input = document.getElementById("a");
+  var cur = 1, sched = null, offset = 0, timer = null, busy = false, run = 0, nextPoll = 0;
+
+  function norm(s) { return s.toUpperCase().replace(/[^A-Z0-9]/g, ""); }
+  function b64(s) { var b = atob(s), u = new Uint8Array(b.length); for (var i = 0; i < b.length; i++) u[i] = b.charCodeAt(i); return u; }
+  function hex(u) { return Array.prototype.map.call(u, function (x) { return ("0" + x.toString(16)).slice(-2); }).join(""); }
+  function say(t, ok) {
+    msg.innerHTML = ""; if (!t) { msg.className = ""; return; }
+    var kind = ok === true ? "ok" : (t === "..." ? "neu" : "bad"), tag = document.createElement("b"), tx = document.createElement("span");
+    tag.textContent = kind === "ok" ? "ACCESS GRANTED" : (kind === "neu" ? "TRANSMITTING" : "ACCESS DENIED"); tx.textContent = t === "..." ? "" : t;
+    msg.className = kind; msg.appendChild(tag); msg.appendChild(tx); if (kind === "bad") glitch(document.getElementById("ttl"));
+  }
+  function sayCd(t) {
+    var c = document.getElementById("cd"); c.innerHTML = ""; if (!t) { c.className = ""; return; }
+    var tag = document.createElement("b"), tx = document.createElement("span"); tag.textContent = "ACCESS GRANTED"; tx.textContent = t; c.className = "ok"; c.appendChild(tag); c.appendChild(tx);
+  }
+  function glitch(el) { if (!el) return; el.classList.remove("gl"); void el.offsetWidth; el.classList.add("gl"); }
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function header() {
+    var n = Math.min(cur, 10), seg = document.getElementById("seg"); seg.innerHTML = "";
+    for (var i = 1; i <= 10; i++) { var s = document.createElement("span"); s.className = i < n ? "d" : (i === n ? "c" : ""); seg.appendChild(s); }
+    document.getElementById("pn").textContent = pad(n); document.getElementById("fn").textContent = pad(n);
+    document.getElementById("obj").textContent = cur > 10 ? "OBJECTIVE: COMPLETE" : "OBJECTIVE: DECRYPT";
+  }
+  setInterval(function () { var d = new Date(Date.now() + (typeof offset === "number" ? offset : 0)); document.getElementById("clk").textContent = "UTC " + pad(d.getUTCHours()) + ":" + pad(d.getUTCMinutes()) + ":" + pad(d.getUTCSeconds()); }, 1000);
+  (function rare() { setTimeout(function () { glitch(document.getElementById("ttl")); rare(); }, 22000 + Math.random() * 26000); })();
+
+  async function derive(pw) {
+    var base = await crypto.subtle.importKey("raw", new TextEncoder().encode(pw), "PBKDF2", false, ["deriveBits"]);
+    var bits = new Uint8Array(await crypto.subtle.deriveBits({ name: "PBKDF2", salt: SALT, iterations: ITER, hash: "SHA-256" }, base, 320));
+    return { key: bits.slice(0, 32), name: hex(bits.slice(32, 40)) };
+  }
+  async function decrypt(keyBytes, pack) {
+    var key = await crypto.subtle.importKey("raw", keyBytes, "AES-GCM", false, ["decrypt"]);
+    var plain = await crypto.subtle.decrypt({ name: "AES-GCM", iv: b64(pack.iv) }, key, b64(pack.ct));
+    return JSON.parse(new TextDecoder().decode(plain));
+  }
+  // is this the right answer for the puzzle the player is on?
+  async function verify(n, a) {
+    var d = await derive(n + ":" + a), r = await fetch("v/" + d.name + ".dat");
+    if (!r.ok) return false;
+    try { var p = await decrypt(d.key, await r.json()); return p.ok === 1; } catch (e) { return false; }
+  }
+  async function getSched() {
+    try { var r = await fetch("schedule.json?_=" + Date.now(), { cache: "no-store" }); var dt = r.headers.get("Date"); if (dt) offset = Date.parse(dt) - Date.now(); sched = await r.json(); } catch (e) { sched = null; }
+  }
+  async function getToken(n) {
+    try { var r = await fetch("r/" + n + ".json?_=" + Date.now(), { cache: "no-store" }); if (!r.ok) return null; return (await r.json()).t; } catch (e) { return null; }
+  }
+  async function loadStage(n, a, tok) {
+    var d = await derive(n + ":" + a + ":" + tok), r = await fetch("d/" + d.name + ".dat");
+    if (!r.ok) throw new Error("nofile");
+    return decrypt(d.key, await r.json());
+  }
+  function show(stage) {
+    var html = stage.html, assets = stage.assets || {};
+    Object.keys(assets).forEach(function (k) {
+      var blob = new Blob([b64(assets[k].b64)], { type: assets[k].mime });
+      html = html.split("{{a:" + k + "}}").join(URL.createObjectURL(blob));
+    });
+    view.innerHTML = "";
+    var fr = document.createElement("iframe");
+    fr.allow = "fullscreen; autoplay";
+    fr.srcdoc = "<!DOCTYPE html><html><head><meta charset='utf-8'><style>html,body{margin:0;background:transparent;color:#bbb;font:14px/1.5 monospace}body{padding:0 0 4px}img,video{max-width:100%;display:block}</style></head><body>" + html + "</body></html>";
+    fr.addEventListener("load", function () {
+      var doc = fr.contentDocument;
+      function fit() { fr.style.height = doc.documentElement.scrollHeight + "px"; }
+      fit();
+      if (window.ResizeObserver) new ResizeObserver(fit).observe(doc.body);
+    });
+    view.appendChild(fr);
+  }
+  function fmt(ms) {
+    var s = Math.max(0, Math.floor(ms / 1000)), d = Math.floor(s / 86400), h = Math.floor(s % 86400 / 3600), m = Math.floor(s % 3600 / 60), x = s % 60, o = [];
+    if (d) o.push(d + "d"); if (d || h) o.push(h + "h"); if (d || h || m) o.push(m + "m"); o.push((x < 10 ? "0" : "") + x + "s");
+    return o.join(" ");
+  }
+  function releaseAt(n) {
+    if (!sched || !sched.launch || !sched.offsets || sched.offsets[String(n)] === undefined) return null;
+    return Date.parse(sched.launch) + sched.offsets[String(n)] * 3600000;
+  }
+  // correct answer: open the next puzzle now, or count down to it
+  async function proceed(prev, a) {
+    var my = ++run; clearInterval(timer);
+    var next = prev + 1, tok = await getToken(next);
+    if (my !== run) return;
+    if (tok) { var st = await loadStage(prev, a, tok); if (my !== run) return; show(st); cur = st.n; say(""); sayCd(""); header(); glitch(document.getElementById("ttl")); return; }
+    await getSched(); if (my !== run) return;
+    var at = releaseAt(next);
+    if (at === null) { sayCd("Correct! The next puzzle isn't ready yet. Check back soon."); return; }
+    function tick() {
+      var left = at - (Date.now() + offset);
+      if (left > 0) { sayCd("Correct! The next puzzle unlocks in " + fmt(left) + "."); return; }
+      sayCd("Correct! The next puzzle is unlocking now...");
+      if (Date.now() >= nextPoll) { nextPoll = Date.now() + 15000; clearInterval(timer); proceed(prev, a); }
+    }
+    tick(); timer = setInterval(tick, 1000);
+  }
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    var a = norm(input.value); if (!a || busy) return;
+    busy = true; say("...");
+    try {
+      if (!(await verify(cur, a))) { say("incorrect."); }
+      else { saveAns(cur, a); input.value = ""; nextPoll = 0; say(""); await proceed(cur, a); }
+    } catch (err) { say("something went wrong. try again."); }
+    busy = false;
+  });
+  function saveAns(n, a) { try { var m = JSON.parse(localStorage.getItem("s404v") || "{}"); m[n] = a; localStorage.setItem("s404v", JSON.stringify(m)); } catch (x) {} }
+  async function restore(m, p) {
+    try {
+      if (!(await verify(p, m[p]))) return;
+      if (p > 1 && m[p - 1] && !(await getToken(p + 1))) { var tk = await getToken(p); if (tk) { var cs = await loadStage(p - 1, m[p - 1], tk); show(cs); cur = cs.n; header(); } }
+      else cur = p;
+      await proceed(p, m[p]);
+    } catch (e) {}
+  }
+  header();
+  try { var m = JSON.parse(localStorage.getItem("s404v") || "{}"), ks = Object.keys(m).map(Number).sort(function (x, y) { return y - x; }); if (ks.length) restore(m, ks[0]); } catch (x) {}
+})();
+</script>
+</body>
+</html>
