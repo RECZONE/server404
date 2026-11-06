@@ -1,0 +1,146 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><style>html,body{margin:0;background:#0a0c0e;color:#bbb;font:14px/1.5 monospace}body{padding:8px}img,video{max-width:100%}</style></head><body><style>
+#rm{font:13px/1.55 Consolas,Menlo,"DejaVu Sans Mono",monospace;color:#b8bec4;letter-spacing:.03em;position:relative}
+#sc{width:100%;display:block;background:#0c0e10;border:1px solid #2b3036}
+.ob{cursor:pointer}.ob .hl{fill:none;stroke:#e8a33d;stroke-width:2;opacity:0}.ob:hover .hl{opacity:.9}
+.lb{fill:#69727a;font:10px Consolas,Menlo,monospace;letter-spacing:.14em;text-anchor:middle;pointer-events:none}
+#tray{margin:12px 0 0;border:1px solid #2b3036;padding:10px 12px;background:rgba(255,255,255,.02)}
+#tray .k{color:#69727a;font-size:11px;letter-spacing:.16em;margin-bottom:6px}
+.pl{display:inline-block;min-width:118px;margin:2px 10px 2px 0;color:#59616a}.pl.on{color:#e9edf0}.pl b{color:#e8a33d;font-weight:normal;margin-right:6px}
+#fin{display:none;margin-top:12px;border:1px solid #e8a33d;padding:10px 12px;color:#e9edf0}
+#hint{color:#69727a;margin:10px 0 0;font-size:12px}
+#cu{display:none;position:absolute;inset:0;background:rgba(8,10,12,.97);border:1px solid #3a4148;padding:14px;overflow:auto;z-index:3}
+#cu button{background:transparent;color:#e8a33d;border:1px solid #e8a33d;padding:4px 10px;font:inherit;letter-spacing:.1em;cursor:pointer}
+#cu button:hover{background:#e8a33d;color:#0a0c0e}
+#bk{margin-bottom:12px}.cc{text-align:center}.card{border:1px solid #2b3036;padding:10px 12px;margin:10px auto;max-width:460px;color:#cfd5da;text-align:left}
+.mg{min-height:1.5em;color:#7fd18b;margin-top:10px}.dim{color:#69727a;font-size:12px}
+.row{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:8px 0}
+.wh{display:inline-flex;flex-direction:column;align-items:center;margin:0 3px}.wh span{font:bold 22px monospace;color:#e9edf0;border:1px solid #3a4148;width:30px;text-align:center;margin:3px 0;background:#101316}
+.cd{position:absolute;width:40px;height:40px;border-radius:50%;border:1px solid #59616a;background:#101316;color:#69727a;cursor:pointer;margin:-20px 0 0 -20px;font:12px/38px monospace;text-align:center}
+.cd.on{background:#e8a33d;color:#0a0c0e;border-color:#e8a33d;box-shadow:0 0 14px #e8a33d}
+#lamp{width:14px;height:14px;border-radius:50%;background:#2a2e33;margin:10px auto}#lamp.on{background:#e8a33d;box-shadow:0 0 12px #e8a33d}
+#fq{font:bold 28px monospace;color:#e9edf0;letter-spacing:.1em}
+input[type=range]{width:min(420px,90%)}
+</style>
+<div id="rm">
+<svg id="sc" viewBox="0 0 800 460">
+ <defs><pattern id="wp" width="24" height="24" patternUnits="userSpaceOnUse"><rect width="24" height="24" fill="#14110e"/><path d="M12 0v24" stroke="#1b1712" stroke-width="2"/></pattern></defs>
+ <rect width="800" height="300" fill="url(#wp)"/><rect y="300" width="800" height="160" fill="#0d0b09"/><line x1="0" y1="300" x2="800" y2="300" stroke="#2a2218" stroke-width="3"/>
+ <g class="ob" data-o="clock"><circle cx="130" cy="120" r="56" fill="#17130f" stroke="#59616a" stroke-width="4"/><g stroke="#69727a" stroke-width="2"><path d="M130 72v8M130 160v8M82 120h8M170 120h8"/></g><path d="M130 120L130 84M130 120L152 128" stroke="#9aa3aa" stroke-width="3"/><circle class="hl" cx="130" cy="120" r="64"/><text class="lb" x="130" y="204">CLOCK</text></g>
+ <g class="ob" data-o="portrait"><rect x="340" y="40" width="120" height="150" fill="#1a130c" stroke="#7a5a2a" stroke-width="6"/><rect x="350" y="50" width="100" height="130" fill="#0b0a09"/><ellipse cx="400" cy="108" rx="20" ry="26" fill="#6e5a4a"/><path d="M360 180Q362 140 400 138Q438 140 440 180Z" fill="#17161a"/><rect class="hl" x="332" y="32" width="136" height="166"/><text class="lb" x="400" y="214">PORTRAIT</text></g>
+ <g class="ob" data-o="radio"><rect x="610" y="90" width="130" height="80" rx="8" fill="#1d1610" stroke="#59616a" stroke-width="3"/><circle cx="650" cy="130" r="22" fill="#0e0c0a" stroke="#8a7a60" stroke-width="2"/><path d="M650 130L664 118" stroke="#e8a33d" stroke-width="3"/><g stroke="#59616a" stroke-width="2"><path d="M690 106h36M690 118h36M690 130h36M690 142h36M690 154h36"/></g><rect class="hl" x="602" y="82" width="146" height="96"/><text class="lb" x="675" y="194">RADIO</text></g>
+ <g class="ob" data-o="ledger"><rect x="50" y="330" width="190" height="80" fill="#1b140d" stroke="#5a4528" stroke-width="3"/><rect x="82" y="316" width="62" height="38" fill="#c9bb95" stroke="#6a5a38" transform="rotate(-6 113 335)"/><rect x="148" y="318" width="62" height="38" fill="#d6c9a4" stroke="#6a5a38" transform="rotate(4 179 337)"/><rect class="hl" x="44" y="308" width="202" height="108"/><text class="lb" x="145" y="436">LEDGER</text></g>
+ <g class="ob" data-o="table"><ellipse cx="410" cy="365" rx="110" ry="46" fill="#1d150d" stroke="#6a4f2a" stroke-width="4"/><g id="sct"></g><ellipse class="hl" cx="410" cy="365" rx="122" ry="56"/><text class="lb" x="410" y="436">TABLE</text></g>
+ <g class="ob" data-o="safe"><rect x="620" y="300" width="120" height="110" fill="#1a1d20" stroke="#59616a" stroke-width="4"/><circle cx="680" cy="355" r="26" fill="#101316" stroke="#8a929a" stroke-width="3"/><path d="M680 355L694 343" stroke="#e8a33d" stroke-width="3"/><rect class="hl" x="612" y="292" width="136" height="126"/><text class="lb" x="680" y="436">SAFE</text></g>
+</svg>
+<div id="tray"><div class="k">PLATES // each holds two pairs. read every pair as: voice &middot; place</div><div id="pls"></div></div>
+<div id="fin">all five plates are in your hands. the room remembers what the voices said. when you know it, tell Flame (@mfalmeyt). he keeps the last lock.</div>
+<p id="hint">click things. look closer.</p>
+<div id="cu"><button id="bk">&larr; back</button><div id="cuc" class="cc"></div></div>
+</div>
+<script>
+(function () {
+var P = { 1: "9461", 2: "2536", 3: "3747", 4: "5212", 5: "8498" }, ROM = ["", "I", "II", "III", "IV", "V"];
+var S = { h: 3, m: 20, c: [0,0,0,0,0,0,0,0,0,0], f: 980, w: "AAAAAAAA", wb: 0, sf: "0000", pl: {} };
+try { var sv = JSON.parse(localStorage.getItem("s404_room") || "null"); if (sv) for (var k in sv) S[k] = sv[k]; } catch (e) {}
+function save() { try { localStorage.setItem("s404_room", JSON.stringify(S)); } catch (e) {} }
+var cu = document.getElementById("cu"), cuc = document.getElementById("cuc"), cur = "";
+function $(i) { return document.getElementById(i); }
+function msg(t) { var m = $("mg"); if (m) m.textContent = t; }
+function pairs(s) { return s[0] + "&middot;" + s[1] + " &nbsp;" + s[2] + "&middot;" + s[3]; }
+function tray() {
+  var h = ""; for (var n = 1; n <= 5; n++) h += '<span class="pl' + (S.pl[n] ? " on" : "") + '"><b>' + ROM[n] + "</b>" + (S.pl[n] ? (n === 3 ? "heard, not shown" : pairs(P[n])) : "&mdash;") + "</span>";
+  $("pls").innerHTML = h; $("fin").style.display = [1,2,3,4,5].every(function (n) { return S.pl[n]; }) ? "block" : "none";
+}
+function unlock(n, text) { if (!S.pl[n]) { S.pl[n] = 1; save(); tray(); } msg(text); }
+function candles() { var g = ""; for (var i = 0; i < 10; i++) { var a = i * 36 * Math.PI / 180; g += '<circle cx="' + (410 + 84 * Math.sin(a)) + '" cy="' + (365 - 30 * Math.cos(a)) + '" r="5" fill="' + (S.c[i] ? "#e8a33d" : "#3a3228") + '"/>'; } $("sct").innerHTML = g; }
+// ----- close-ups -----
+var V = {
+ ledger: function () { return '<div class="card"><b>PROMENADE HOTEL - REGISTER</b><br><br>Oct 31<br>Pell, Walter &nbsp;&nbsp;110 &nbsp; out 8:20 am<br>Nash, Olive &nbsp;&nbsp;109 &nbsp; out 9:00 am<br><b>Marsh, Winifred &nbsp;104 &nbsp; in 11:47 pm &nbsp; out ____</b><br><br><span class="dim">night audit, 11:59 pm: one guest remains in house.</span></div>'; },
+ clock: function () {
+  var a = (S.h % 12) * 30 + S.m * 0.5, b = S.m * 6, t = "";
+  for (var i = 0; i < 12; i++) t += '<line x1="0" y1="-56" x2="0" y2="-62" stroke="#69727a" stroke-width="2" transform="rotate(' + i * 30 + ')"/>';
+  return '<svg viewBox="-70 -70 140 140" width="250"><circle r="66" fill="#17130f" stroke="#59616a" stroke-width="4"/>' + t + '<line x1="0" y1="0" x2="0" y2="-34" stroke="#cfd5da" stroke-width="5" stroke-linecap="round" transform="rotate(' + a + ')"/><line x1="0" y1="0" x2="0" y2="-52" stroke="#e8a33d" stroke-width="3" stroke-linecap="round" transform="rotate(' + b + ')"/><circle r="4" fill="#cfd5da"/></svg>'
+   + '<div class="row"><button data-c="h-">hour -</button><button data-c="h+">hour +</button></div><div class="row"><button data-c="m-5">min -5</button><button data-c="m-1">min -1</button><button data-c="m+1">min +1</button><button data-c="m+5">min +5</button></div>'
+   + '<div class="card">a brass card on the case: <i>it stopped when she signed in.</i></div><div class="mg" id="mg"></div>';
+ },
+ table: function () {
+  var h = '<div class="card">a card by the candles: <i>every guest brought a flame, except the two who sat in the cold.</i></div><div style="position:relative;width:280px;height:280px;margin:0 auto"><div style="position:absolute;left:70px;top:70px;width:140px;height:140px;border-radius:50%;border:2px solid #3d3126;background:#17120d"></div>';
+  for (var i = 0; i < 10; i++) { var a = i * 36 * Math.PI / 180; h += '<div class="cd' + (S.c[i] ? " on" : "") + '" data-i="' + i + '" style="left:' + (140 + 112 * Math.sin(a)) + 'px;top:' + (140 - 112 * Math.cos(a)) + 'px">' + (i + 1) + "</div>"; }
+  return h + '</div><p class="dim">chairs are numbered clockwise from the head of the table, at the top.</p><div class="mg" id="mg"></div>';
+ },
+ radio: function () {
+  return '<div id="lamp"></div><div id="fq">' + (S.f / 10).toFixed(1) + '</div><input type="range" id="sl" min="880" max="1080" step="1" value="' + S.f + '"><p class="dim">a faded sticker on the back: ROOM &middot; MINUTE</p><div class="mg" id="mg"></div>';
+ },
+ portrait: function () {
+  if (!S.wb) return '<svg viewBox="0 0 160 200" width="230"><rect x="6" y="6" width="148" height="188" fill="#1a130c" stroke="#7a5a2a" stroke-width="8"/><rect x="18" y="18" width="124" height="164" fill="#0b0a09"/><ellipse cx="80" cy="84" rx="25" ry="32" fill="#8a7a6a"/><ellipse cx="70" cy="80" rx="4" ry="3" fill="#000"/><ellipse cx="90" cy="80" rx="4" ry="3" fill="#000"/><path d="M30 182Q32 132 80 128Q128 132 130 182Z" fill="#17161a"/></svg><p><button data-c="turn">turn the frame</button></p><div class="mg" id="mg"></div>';
+  var h = '<div class="card">scratched into the backing: <i>say it to the gate.</i></div><div class="row">';
+  for (var i = 0; i < 8; i++) h += '<div class="wh"><button data-w="' + i + '+">&#9650;</button><span>' + S.w[i] + '</span><button data-w="' + i + '-">&#9660;</button></div>';
+  return h + '</div><div class="mg" id="mg"></div>';
+ },
+ safe: function () {
+  var h = '<div class="card">stamped on the door: <i>the last of each plate. in order. I to IV.</i></div><div class="row">';
+  for (var i = 0; i < 4; i++) h += '<div class="wh"><button data-s="' + i + '+">&#9650;</button><span>' + S.sf[i] + '</span><button data-s="' + i + '-">&#9660;</button></div>';
+  return h + '</div><div class="mg" id="mg">' + (S.pl[5] ? "the door is open. plate V is yours." : "") + '</div>';
+ }
+};
+function open(o) { cur = o; cuc.innerHTML = V[o](); cu.style.display = "block"; if (o === "radio") tune(); }
+function close() { cu.style.display = "none"; cuc.innerHTML = ""; cur = ""; stopAudio(); }
+function checks() {
+  if (cur === "clock" && S.h === 11 && S.m === 47) unlock(1, "a catch releases. a thin plate slides out of the case.");
+  if (cur === "table") { var ok = true; for (var i = 0; i < 10; i++) if (!!S.c[i] !== (i !== 2 && i !== 7)) ok = false; if (ok) unlock(2, "the room warms. a drawer clicks open under the table."); }
+  if (cur === "portrait" && S.wb && S.w === "WHISPERS") unlock(4, "the backing swings open. a plate waits inside.");
+  if (cur === "safe" && S.sf === "1672") unlock(5, "the door opens. plate V is yours.");
+}
+cuc.addEventListener("click", function (e) {
+  var t = e.target, c = t.getAttribute && t.getAttribute("data-c");
+  if (c) {
+    if (c === "h+") S.h = S.h % 12 + 1; if (c === "h-") S.h = (S.h + 10) % 12 + 1; if (c === "turn") S.wb = 1;
+    var m = /^m([+-])(\d)$/.exec(c); if (m) S.m = ((S.m + (m[1] === "+" ? 1 : -1) * +m[2]) % 60 + 60) % 60;
+    save(); cuc.innerHTML = V[cur](); checks(); return;
+  }
+  var w = t.getAttribute && t.getAttribute("data-w");
+  if (w) { var i = +w[0], d = w[1] === "+" ? 1 : -1, ch = (S.w.charCodeAt(i) - 65 + d + 26) % 26; S.w = S.w.slice(0, i) + String.fromCharCode(65 + ch) + S.w.slice(i + 1); save(); cuc.innerHTML = V[cur](); checks(); return; }
+  var s = t.getAttribute && t.getAttribute("data-s");
+  if (s) { var j = +s[0], dd = s[1] === "+" ? 1 : -1, v = (+S.sf[j] + dd + 10) % 10; S.sf = S.sf.slice(0, j) + v + S.sf.slice(j + 1); save(); cuc.innerHTML = V[cur](); checks(); return; }
+  var ci = t.getAttribute && t.getAttribute("data-i");
+  if (ci !== null && ci !== undefined && t.className.indexOf("cd") >= 0) { S.c[+ci] = S.c[+ci] ? 0 : 1; save(); candles(); cuc.innerHTML = V[cur](); checks(); }
+});
+$("bk").addEventListener("click", close);
+Array.prototype.forEach.call(document.querySelectorAll(".ob"), function (g) { g.addEventListener("click", function () { open(g.getAttribute("data-o")); }); });
+// ----- radio: static, decoy stations, and the real one in morse -----
+var AC = null, nz = null, ng = null, tok = 0, timers = [], MORSE = { 0: "-----", 1: ".----", 2: "..---", 3: "...--", 4: "....-", 5: ".....", 6: "-....", 7: "--...", 8: "---..", 9: "----." };
+var ST = { 1047: "3747", 888: "SOS", 999: "AAA" };
+function stopAudio() { tok++; timers.forEach(clearTimeout); timers = []; if (ng) ng.gain.value = 0; var l = $("lamp"); if (l) l.className = ""; }
+function pattern(code) {   // list of [on?, units]
+  var p = [], add = function (on, u) { p.push([on, u]); };
+  if (code === "SOS") { "...---...".split("").forEach(function (s, i) { add(1, s === "." ? 1 : 3); add(0, (i === 2 || i === 5) ? 3 : 1); }); add(0, 12); }
+  else if (code === "AAA") { for (var r = 0; r < 4; r++) { add(1, 1); add(0, 1); add(1, 3); add(0, 1); } add(0, 12); }
+  else { code.split("").forEach(function (d) { MORSE[d].split("").forEach(function (s) { add(1, s === "." ? 1 : 3); add(0, 1); }); add(0, 4); }); add(0, 14); }
+  return p;
+}
+function play(code, my) {
+  var u = 0.13, p = pattern(code), total = 0; p.forEach(function (x) { total += x[1] * u; });
+  (function loop() {
+    if (my !== tok || !AC) return; var t0 = AC.currentTime + 0.08, off = 0, l = $("lamp");
+    p.forEach(function (x) { var dur = x[1] * u;
+      if (x[0]) { var o = AC.createOscillator(), g = AC.createGain(); o.frequency.value = 640; g.gain.setValueAtTime(0.0001, t0 + off); g.gain.exponentialRampToValueAtTime(0.25, t0 + off + 0.01); g.gain.setValueAtTime(0.25, t0 + off + dur - 0.02); g.gain.exponentialRampToValueAtTime(0.0001, t0 + off + dur); o.connect(g); g.connect(AC.destination); o.start(t0 + off); o.stop(t0 + off + dur + 0.02);
+        timers.push(setTimeout(function () { if (my === tok && l) l.className = "on"; }, (0.08 + off) * 1000)); timers.push(setTimeout(function () { if (l) l.className = ""; }, (0.08 + off + dur) * 1000)); }
+      off += dur; });
+    timers.push(setTimeout(loop, (total + 0.1) * 1000));
+  })();
+}
+function tune() {
+  var C = window.AudioContext || window.webkitAudioContext;
+  if (C && !AC) { AC = new C(); var b = AC.createBuffer(1, AC.sampleRate * 2, AC.sampleRate), d = b.getChannelData(0); for (var i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1; nz = AC.createBufferSource(); nz.buffer = b; nz.loop = true; ng = AC.createGain(); ng.gain.value = 0; var f = AC.createBiquadFilter(); f.type = "bandpass"; f.frequency.value = 1800; nz.connect(f); f.connect(ng); ng.connect(AC.destination); nz.start(); }
+  if (AC && AC.state === "suspended") AC.resume();
+  stopAudio(); var my = tok;
+  var best = 999, key = null; for (var k in ST) { var dd = Math.abs(S.f - +k); if (dd < best) { best = dd; key = +k; } }
+  if (ng) ng.gain.value = Math.min(0.16, 0.012 + best * 0.0016);
+  if (best === 0) { if (ng) ng.gain.value = 0.008; play(ST[key], my); if (key === 1047) { unlock(3, "a thin voice in the static. a plate of sound. write down what you hear."); } }
+  else msg(best < 4 ? "something moves under the static..." : "");
+}
+cuc.addEventListener("input", function (e) { if (e.target.id === "sl") { S.f = +e.target.value; $("fq").textContent = (S.f / 10).toFixed(1); save(); tune(); } });
+tray(); candles();
+})();
+</script>
+</body></html>

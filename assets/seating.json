@@ -1,0 +1,128 @@
+{
+ "solution": [
+  "Hester",
+  "Alaric",
+  "Silas",
+  "Ursula",
+  "Nathaniel",
+  "Thaddeus",
+  "Isolde",
+  "Edmund",
+  "Norah",
+  "Gideon"
+ ],
+ "clues": [
+  "Exactly two guests sit between Nathaniel and Alaric (counting the short way round).",
+  "Ursula does not sit beside Isolde.",
+  "Hester sits in an odd-numbered chair.",
+  "Exactly one of these is true: exactly three guests sit between Isolde and Norah (counting the short way round); Ursula and Silas sit side by side.",
+  "Gideon and Hester sit side by side.",
+  "Silas sits directly opposite Edmund.",
+  "Ursula sits in one of chairs 1 to 5.",
+  "Thaddeus sits in chair 6.",
+  "Norah sits in an odd-numbered chair.",
+  "Exactly one of these is true: Isolde sits directly opposite Alaric; exactly two guests sit between Thaddeus and Nathaniel (counting the short way round).",
+  "Exactly one of these is true: Nathaniel sits directly opposite Edmund; exactly three guests sit between Norah and Silas (counting the short way round)."
+ ],
+ "checks": [
+  {
+   "n": 1,
+   "text": "Exactly two guests sit between Nathaniel and Alaric (counting the short way round).",
+   "seats": "Alaric (chair 2) and Nathaniel (chair 5) - clue holds"
+  },
+  {
+   "n": 2,
+   "text": "Ursula does not sit beside Isolde.",
+   "seats": "Isolde (chair 7) and Ursula (chair 4) - clue holds"
+  },
+  {
+   "n": 3,
+   "text": "Hester sits in an odd-numbered chair.",
+   "seats": "Hester (chair 1) - clue holds"
+  },
+  {
+   "n": 4,
+   "text": "Exactly one of these is true: exactly three guests sit between Isolde and Norah (counting the short way round); Ursula and Silas sit side by side.",
+   "seats": "Isolde (chair 7) and Norah (chair 9) and Silas (chair 3) and Ursula (chair 4) - clue holds"
+  },
+  {
+   "n": 5,
+   "text": "Gideon and Hester sit side by side.",
+   "seats": "Gideon (chair 10) and Hester (chair 1) - clue holds"
+  },
+  {
+   "n": 6,
+   "text": "Silas sits directly opposite Edmund.",
+   "seats": "Edmund (chair 8) and Silas (chair 3) - clue holds"
+  },
+  {
+   "n": 7,
+   "text": "Ursula sits in one of chairs 1 to 5.",
+   "seats": "Ursula (chair 4) - clue holds"
+  },
+  {
+   "n": 8,
+   "text": "Thaddeus sits in chair 6.",
+   "seats": "Thaddeus (chair 6) - clue holds"
+  },
+  {
+   "n": 9,
+   "text": "Norah sits in an odd-numbered chair.",
+   "seats": "Norah (chair 9) - clue holds"
+  },
+  {
+   "n": 10,
+   "text": "Exactly one of these is true: Isolde sits directly opposite Alaric; exactly two guests sit between Thaddeus and Nathaniel (counting the short way round).",
+   "seats": "Alaric (chair 2) and Isolde (chair 7) and Nathaniel (chair 5) and Thaddeus (chair 6) - clue holds"
+  },
+  {
+   "n": 11,
+   "text": "Exactly one of these is true: Nathaniel sits directly opposite Edmund; exactly three guests sit between Norah and Silas (counting the short way round).",
+   "seats": "Edmund (chair 8) and Nathaniel (chair 5) and Norah (chair 9) and Silas (chair 3) - clue holds"
+  }
+ ],
+ "cases": [
+  {
+   "combo": "clue 4: statement A, clue 10: statement A, clue 11: statement A",
+   "solutions": 0
+  },
+  {
+   "combo": "clue 4: statement A, clue 10: statement A, clue 11: statement B",
+   "solutions": 0
+  },
+  {
+   "combo": "clue 4: statement A, clue 10: statement B, clue 11: statement A",
+   "solutions": 0
+  },
+  {
+   "combo": "clue 4: statement A, clue 10: statement B, clue 11: statement B",
+   "solutions": 0
+  },
+  {
+   "combo": "clue 4: statement B, clue 10: statement A, clue 11: statement A",
+   "solutions": 0
+  },
+  {
+   "combo": "clue 4: statement B, clue 10: statement A, clue 11: statement B",
+   "solutions": 1
+  },
+  {
+   "combo": "clue 4: statement B, clue 10: statement B, clue 11: statement A",
+   "solutions": 0
+  },
+  {
+   "combo": "clue 4: statement B, clue 10: statement B, clue 11: statement B",
+   "solutions": 0
+  }
+ ],
+ "xors": [
+  4,
+  10,
+  11
+ ],
+ "xorTexts": {
+  "4": "Exactly one of these is true: exactly three guests sit between Isolde and Norah (counting the short way round); Ursula and Silas sit side by side.",
+  "10": "Exactly one of these is true: Isolde sits directly opposite Alaric; exactly two guests sit between Thaddeus and Nathaniel (counting the short way round).",
+  "11": "Exactly one of these is true: Nathaniel sits directly opposite Edmund; exactly three guests sit between Norah and Silas (counting the short way round)."
+ }
+}

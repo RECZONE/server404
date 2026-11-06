@@ -1,0 +1,54 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><style>html,body{margin:0;background:#0a0c0e;color:#bbb;font:14px/1.5 monospace}body{padding:8px}img,video{max-width:100%}</style></head><body><style>
+#w{font:13px/1.55 monospace;color:#aaa}#w p{margin:0 0 14px}
+#top{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start}
+#tb{width:min(100%,520px);flex:0 0 auto;display:block}
+#pool{flex:1;min-width:140px;display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start}
+.tok{border:1px solid #555;background:#161616;color:#ccc;padding:6px 10px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.tok.h{border-color:#c9a227;color:#fff;background:#2a2410}
+.chair{cursor:pointer}.chair circle{fill:#171717;stroke:#5a5a5a;stroke-width:2}.chair.hl circle{stroke:#c9a227}
+#cl{padding-left:24px;margin:18px 0}#cl li{cursor:pointer;margin:0 0 8px}#cl li.x{text-decoration:line-through;color:#4a4a4a}
+</style>
+<div id="w">
+<p>ten came to the seance. nobody speaks until every guest sits where the spirits placed them.</p>
+<div id="top"><svg id="tb" viewBox="0 0 520 520"></svg><div id="pool"></div></div>
+<ol id="cl"></ol>
+<p>chairs are numbered clockwise from the head of the table (chair 1, at the top). when everyone is seated, read the first letters of the names clockwise from chair 1. ignore chairs 3 and 8.</p>
+<p style="color:#666">tap a name, then a chair. tap a seated name to pick it up again. tap a clue to cross it out.</p>
+</div>
+<script>
+(function(){
+var NAMES=["Alaric","Edmund","Gideon","Hester","Isolde","Nathaniel","Norah","Silas","Thaddeus","Ursula"],CL=["Exactly two guests sit between Nathaniel and Alaric (counting the short way round).", "Ursula does not sit beside Isolde.", "Hester sits in an odd-numbered chair.", "Exactly one of these is true: exactly three guests sit between Isolde and Norah (counting the short way round); Ursula and Silas sit side by side.", "Gideon and Hester sit side by side.", "Silas sits directly opposite Edmund.", "Ursula sits in one of chairs 1 to 5.", "Thaddeus sits in chair 6.", "Norah sits in an odd-numbered chair.", "Exactly one of these is true: Isolde sits directly opposite Alaric; exactly two guests sit between Thaddeus and Nathaniel (counting the short way round).", "Exactly one of these is true: Nathaniel sits directly opposite Edmund; exactly three guests sit between Norah and Silas (counting the short way round)."];
+var seats=[],held=null,crossed={},NS="http://www.w3.org/2000/svg",svg=document.getElementById("tb"),pool=document.getElementById("pool"),cl=document.getElementById("cl");
+for(var i=0;i<10;i++)seats.push(null);
+try{var sv=JSON.parse(localStorage.getItem("s404_p8")||"null");if(sv&&sv.s&&sv.s.length===10){seats=sv.s;crossed=sv.x||{}}}catch(e){}
+function save(){try{localStorage.setItem("s404_p8",JSON.stringify({s:seats,x:crossed}))}catch(e){}}
+function el(n,a,p){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+function pos(r,i){var a=(-90+i*36)*Math.PI/180;return[260+r*Math.cos(a),260+r*Math.sin(a)]}
+function draw(){
+ svg.innerHTML="";el("circle",{cx:260,cy:260,r:112,fill:"#1a1612",stroke:"#3d3126","stroke-width":4},svg);
+ el("circle",{cx:260,cy:260,r:96,fill:"none",stroke:"#2a2118","stroke-width":1},svg);
+ var f=el("ellipse",{cx:260,cy:262,rx:5,ry:9,fill:"#d9892b",opacity:.85},svg);
+ var hd=el("text",{x:260,y:20,"text-anchor":"middle",fill:"#666","font-size":12,"font-family":"monospace"},svg);hd.textContent="head of table";
+ for(var i=0;i<10;i++){
+  var g=el("g",{"class":"chair"+(held&&!seats[i]?" hl":"")},svg),c=pos(160,i),n=pos(126,i),l=pos(216,i);
+  el("circle",{cx:c[0],cy:c[1],r:25},g);
+  var nm=el("text",{x:n[0],y:n[1]+4,"text-anchor":"middle",fill:"#777","font-size":12,"font-family":"monospace"},g);nm.textContent=i+1;
+  if(seats[i]){var t=el("text",{x:c[0],y:c[1]+8,"text-anchor":"middle",fill:"#eee","font-size":22,"font-weight":"bold","font-family":"monospace","class":"ini"},g);t.textContent=seats[i][0];
+   var lb=el("text",{x:l[0],y:l[1]+4,"text-anchor":"middle",fill:"#bbb","font-size":13,"font-family":"monospace"},g);lb.textContent=seats[i]}
+  (function(i){g.addEventListener("click",function(){clickChair(i)})})(i);
+ }
+ pool.innerHTML="";
+ NAMES.filter(function(n){return seats.indexOf(n)<0}).forEach(function(n){var b=document.createElement("div");b.className="tok"+(held===n?" h":"");b.textContent=n;b.addEventListener("click",function(){held=(held===n?null:n);draw()});pool.appendChild(b)});
+ if(held&&seats.indexOf(held)<0){var h=document.getElementById("pool");}
+ save();
+}
+function clickChair(i){
+ if(held){var prev=seats[i];seats[i]=held;held=null;if(prev)held=null;}
+ else if(seats[i]){held=seats[i];seats[i]=null}
+ draw();
+}
+CL.forEach(function(t,i){var li=document.createElement("li");li.textContent=t;if(crossed[i])li.className="x";li.addEventListener("click",function(){crossed[i]=!crossed[i];li.className=crossed[i]?"x":"";save()});cl.appendChild(li)});
+draw();
+})();
+</script>
+</body></html>
